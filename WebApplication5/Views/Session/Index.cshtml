@@ -1,0 +1,22 @@
+﻿@using WebApplication5.Models
+@model Session
+@{
+    ViewData["Title"] = "Session Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Session</h1>
+
+    <form asp-action="Create" asp-controller="Session" method="post">
+        <input type="text" asp-for="Id" /><br />
+        <input type="text" asp-for="Name" /><br />
+
+        @for(var i = 0; i < Model.Students.Count; i++)
+        {
+            <input type="text" asp-for="@Model.Students[i].Id" /><br />
+            <input type="text" asp-for="@Model.Students[i].Name" /><br />
+        }
+
+        <input type="submit" value="Create session" />
+    </form>
+</div>
